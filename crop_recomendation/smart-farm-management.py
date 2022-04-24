@@ -312,7 +312,7 @@ score
 
 
 import pickle
-# Dump the trained Naive Bayes classifier with Pickle
+# Dump the trained RandomF orestclassifier with Pickle
 RF_pkl_filename = 'RandomForest.pkl'
 # Open the file to save as pkl file
 RF_Model_pkl = open(RF_pkl_filename, 'wb')
@@ -326,41 +326,41 @@ RF_Model_pkl.close()
 # In[31]:
 
 
-import xgboost as xgb
-XB = xgb.XGBClassifier()
-XB.fit(Xtrain,Ytrain)
+# import xgboost as xgb
+# XB = xgb.XGBClassifier()
+# XB.fit(Xtrain,Ytrain)
 
-predicted_values = XB.predict(Xtest)
+# predicted_values = XB.predict(Xtest)
 
-x = metrics.accuracy_score(Ytest, predicted_values)
-acc.append(x)
-model.append('XGBoost')
-print("XGBoost's Accuracy is: ", x)
+# x = metrics.accuracy_score(Ytest, predicted_values)
+# acc.append(x)
+# model.append('XGBoost')
+# print("XGBoost's Accuracy is: ", x)
 
-print(classification_report(Ytest,predicted_values))
-
-
-# In[32]:
+# print(classification_report(Ytest,predicted_values))
 
 
-# Cross validation score (XGBoost)
-score = cross_val_score(XB,features,target,cv=5)
-score
+# # In[32]:
 
 
-# ### Saving trained XGBoost model
+# # Cross validation score (XGBoost)
+# score = cross_val_score(XB,features,target,cv=5)
+# score
 
-# In[33]:
+
+# # ### Saving trained XGBoost model
+
+# # In[33]:
 
 
-import pickle
-# Dump the trained Naive Bayes classifier with Pickle
-XB_pkl_filename = 'XGBoost.pkl'
-# Open the file to save as pkl file
-XB_Model_pkl = open(XB_pkl_filename, 'wb')
-pickle.dump(XB, XB_Model_pkl)
-# Close the pickle instances
-XB_Model_pkl.close()
+# import pickle
+# # Dump the trained Naive Bayes classifier with Pickle
+# XB_pkl_filename = 'XGBoost.pkl'
+# # Open the file to save as pkl file
+# XB_Model_pkl = open(XB_pkl_filename, 'wb')
+# pickle.dump(XB, XB_Model_pkl)
+# # Close the pickle instances
+# XB_Model_pkl.close()
 
 
 # ## Accuracy Comparison
