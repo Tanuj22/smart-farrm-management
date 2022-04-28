@@ -5,8 +5,11 @@ import torch.nn.functional as F # for functions for calculating loss
 import torchvision.transforms as transforms   # for transforming images into tensors 
 from torchvision.datasets import ImageFolder  # for working with classes and images
 import matplotlib.pyplot as plt # for plotting informations on graph and images using tensors
+from flask import Blueprint
 
-data_dir = "./new-plant-diseases-dataset/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)"
+disease_api = Blueprint('disease_api', __name__)
+
+data_dir = "crop_health_detection/new-plant-diseases-dataset/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)"
 train_dir = data_dir + "/train"
 
 train = ImageFolder(train_dir, transform=transforms.ToTensor())
@@ -92,13 +95,13 @@ class ResNet9(ImageClassificationBase):
 
 device = get_default_device()
 
-PATH = './plant-disease-model.pth'  
+PATH = 'crop_health_detection/plant-disease-model.pth'  
 model = to_device(ResNet9(3, len(train.classes)), device) 
 model.load_state_dict(torch.load(PATH))
 model.eval()
 
 
-test_dir = "./new-plant-diseases-dataset/test"
+test_dir = "crop_health_detection/new-plant-diseases-dataset/test"
 test = ImageFolder(test_dir, transform=transforms.ToTensor())
 
 
@@ -115,10 +118,16 @@ def predict_image(img, model):
     return train.classes[preds[0].item()]
 
 
-img, label = test[0]
-plt.imshow(img.permute(1, 2, 0))
-print('Label:', test_images[0], ', Predicted:', predict_image(img, model))
+# img, label = test[0]
+# plt.imshow(img.permute(1, 2, 0))
+# print('Label:', test_images[0], ', Predicted:', predict_image(img, model))
 
 
-for i, (img, label) in enumerate(test):
-    print('Label:', test_images[i], ', Predicted:', predict_image(img, model))
+# for i, (img, label) in enumerate(test):
+#     print('Label:', test_images[i], ', Predicted:', predict_image(img, model))
+
+
+@disease_api.route('/disease')
+def disease():
+    img, label = test[0]
+    return predict_image(img, model)

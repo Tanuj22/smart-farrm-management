@@ -2,3 +2,4 @@ env/
 *.zip
 backend/crop_health_detection/new-plant-diseases-dataset/
 *.pth
+__pycache__/
