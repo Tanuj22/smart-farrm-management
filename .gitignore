@@ -1,4 +1,4 @@
 env/
 *.zip
-crop_health_detection/new-plant-diseases-dataset/
+backend/crop_health_detection/new-plant-diseases-dataset/
 *.pth

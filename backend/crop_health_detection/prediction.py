@@ -102,35 +102,23 @@ test_dir = "./new-plant-diseases-dataset/test"
 test = ImageFolder(test_dir, transform=transforms.ToTensor())
 
 
-test_images = sorted(os.listdir(test_dir + '/test')) # since images in test folder are in alphabetical order
+test_images = sorted(os.listdir(test_dir + '/test'))
 
 
 def predict_image(img, model):
     """Converts image to array and return the predicted class
         with highest probability"""
-    # Convert to a batch of 1
     xb = to_device(img.unsqueeze(0), device)
-    # Get predictions from model
     yb = model(xb)
-    # Pick index with highest probability
     _, preds  = torch.max(yb, dim=1)
-    # Retrieve the class label
 
     return train.classes[preds[0].item()]
 
 
-# In[ ]:
-
-
-# predicting first image
 img, label = test[0]
 plt.imshow(img.permute(1, 2, 0))
 print('Label:', test_images[0], ', Predicted:', predict_image(img, model))
 
 
-# In[ ]:
-
-
-# getting all predictions (actual label vs predicted)
 for i, (img, label) in enumerate(test):
     print('Label:', test_images[i], ', Predicted:', predict_image(img, model))
