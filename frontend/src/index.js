@@ -8,6 +8,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import Disease from '../src/pages/disease_detection';
+import Prediction from '../src/pages/crop_prediction';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -15,6 +16,7 @@ ReactDOM.render(
     <Routes>
       <Route exact path='/' element={<App />} />
       <Route path='/disease-detection' element={<Disease />} />
+      <Route path='/crop-prediction' element={<Prediction />} />
     </Routes>
   </Router>,
   document.getElementById("root")
