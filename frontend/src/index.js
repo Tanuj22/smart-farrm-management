@@ -6,6 +6,7 @@ import {
   Route
 } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 import App from './App';
 import Disease from '../src/pages/disease_detection';
 import Prediction from '../src/pages/crop_prediction';

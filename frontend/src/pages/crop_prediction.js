@@ -1,5 +1,7 @@
 import React from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Row, Col, Card } from 'react-bootstrap';
+import GaugeChart from 'react-gauge-chart';
+import Thermometer from 'react-thermometer-component';
 import NavBar from '../components/NavBar';
 
 class Prediction extends React.Component {
@@ -56,6 +58,48 @@ class Prediction extends React.Component {
 
                         </Button>
                     </div>
+                    <Row>
+                        <Col>
+                            <p>Temperature</p>
+                            <Thermometer
+                            theme="dark"
+                            value="18"
+                            max="100"
+                            steps="4"
+                            format="°C"
+                            />
+                        </Col>
+                        <Col>
+                            <p>Humidity</p>
+                            <GaugeChart id="gauge-chart1" />
+                        </Col>
+                        <Col>
+                            <p>Soil pH</p>
+                            <GaugeChart id="gauge-chart1" />
+                        </Col>
+                        <Col>
+                            <p>Rainfall</p>
+                            <GaugeChart id="gauge-chart1" />
+                        </Col>
+                    </Row> 
+                    <Row>
+                        <p>Soil Demographics</p>
+                        <Col>
+                            <p>n-value</p>
+                            <GaugeChart id="gauge-chart1" />
+                        </Col>
+                        <Col>
+                            <p>p-value</p>
+                            <GaugeChart id="gauge-chart1" />
+                        </Col>
+                        <Col>
+                            <p>k-value</p>
+                            <GaugeChart id="gauge-chart1" />
+                        </Col>
+                    </Row> 
+                    <Card>
+                        <p>The predicted crop for maximum yield is Rice as per the above demographic conditions.</p>
+                    </Card>
                 </Container>
             </div>
         );
