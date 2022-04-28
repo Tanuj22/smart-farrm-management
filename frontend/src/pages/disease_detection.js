@@ -9,8 +9,7 @@ class Disease extends React.Component {
 		super(props);
 		this.state = {
 			imgId: '',
-			imgSrc: [],
-			imgFile: null
+			imgSrc: []
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleImgCapture = this.handleImgCapture.bind(this);
