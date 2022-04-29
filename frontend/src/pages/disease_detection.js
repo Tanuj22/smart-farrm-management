@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import NavBar from "../components/NavBar";
 import { Container, Button, Card } from "react-bootstrap";
 import { AiOutlineScan } from 'react-icons/ai';
@@ -8,17 +9,9 @@ class Disease extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			imgId: '',
 			imgSrc: []
 		};
-		this.handleChange = this.handleChange.bind(this);
 		this.handleImgCapture = this.handleImgCapture.bind(this);
-	}
-
-	handleChange(event) {
-		const { id, value } = event.target;
-		let imgId = { ...imgId };
-		imgId = event.value;
 	}
 
 	handleImgCapture(img) {
@@ -39,6 +32,11 @@ class Disease extends React.Component {
 			this.state.imgSrc
 		);
 		console.log(this.state.imgSrc);
+		// axios
+        //     .post('http://localhost:8000/predict', formData)
+        //     .then((res)=>{
+        //         console.log(res.data);
+        //     });
 	};
 
 	render() {
