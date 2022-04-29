@@ -1,5 +1,6 @@
 env/
 *.zip
-backend/crop_health_detection/new-plant-diseases-dataset/
-*.pth
+backend/crop_health_detection/new-plant-diseases-dataset/new plant diseases dataset(augmented)
+plant-disease-model-complete.pth
 __pycache__/
+New Plant Diseases Dataset(Augmented)
