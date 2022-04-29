@@ -28,11 +28,19 @@ class Disease extends React.Component {
 
 	onImgUpload = () => {
 		const formData = new FormData();
-		formData.append("image", this.state.imgSrc);
+		formData.append('image', this.state.imgSrc);
+		// formData.append("hello", "hell");
 		console.log(this.state.imgSrc);
-		console.log(formData);
+		console.log(formData.entries());
+		// for (var pair of formData.entries()) {
+		// 	console.log(pair[0]+ ', ' + pair[1]); 
+		// }
 		axios
-            .post('http://localhost:5000/disease', formData)
+            .post('http://localhost:5000/disease', formData,{
+				headers:{
+					'Content-Type':'multipart/form-data'
+				}
+			})
             .then((res)=>{
                 console.log(res.data);
             });
@@ -46,7 +54,7 @@ class Disease extends React.Component {
 					<h1 align="center">Disease Detection</h1>
 					<WebcamCapture imgSrc={this.state.imgSrc} setImgSrc={this.handleImgCapture} />
 					<div>
-                        <input type="file" onChange={this.onImgChange} />
+                        <input type="file" onChange={this.onImgChange} name="image"/>
                         <label htmlFor='choose-file'>
                             <Button><FaUpload /></Button>
                         </label>&nbsp;
