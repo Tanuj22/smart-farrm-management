@@ -5,7 +5,7 @@ const NavBar = () => {
     return (
         <Navbar bg="dark" variant="dark" expand={false}>
             <Container fluid>
-                <Navbar.Brand href="#">Smart Farm Management</Navbar.Brand>
+                <Navbar.Brand href="/">Smart Farm Management</Navbar.Brand>
                 <Navbar.Toggle aria-controls="offcanvasNavbar" />
                 <Navbar.Offcanvas
                     id="offcanvasNavbar"
@@ -13,7 +13,7 @@ const NavBar = () => {
                     placement="end"
                 >
                     <Offcanvas.Header closeButton>
-                        <Offcanvas.Title id="offcanvasNavbarLabel">Offcanvas</Offcanvas.Title>
+                        <Offcanvas.Title id="offcanvasNavbarLabel">Options</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">

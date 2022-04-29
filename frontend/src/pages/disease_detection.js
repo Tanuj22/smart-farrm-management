@@ -3,13 +3,14 @@ import axios from "axios";
 import NavBar from "../components/NavBar";
 import { Container, Button, Card } from "react-bootstrap";
 import { AiOutlineScan } from 'react-icons/ai';
+import {FaUpload} from 'react-icons/fa';
 import WebcamCapture from "../components/WebcamCapture";
 
 class Disease extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			imgSrc: []
+			imgSrc: null
 		};
 		this.handleImgCapture = this.handleImgCapture.bind(this);
 	}
@@ -27,16 +28,14 @@ class Disease extends React.Component {
 
 	onImgUpload = () => {
 		const formData = new FormData();
-		formData.append(
-			"myFile",
-			this.state.imgSrc
-		);
+		formData.append("image", this.state.imgSrc);
 		console.log(this.state.imgSrc);
-		// axios
-        //     .post('http://localhost:8000/predict', formData)
-        //     .then((res)=>{
-        //         console.log(res.data);
-        //     });
+		console.log(formData);
+		axios
+            .post('http://localhost:5000/disease', formData)
+            .then((res)=>{
+                console.log(res.data);
+            });
 	};
 
 	render() {
@@ -47,13 +46,12 @@ class Disease extends React.Component {
 					<h1 align="center">Disease Detection</h1>
 					<WebcamCapture imgSrc={this.state.imgSrc} setImgSrc={this.handleImgCapture} />
 					<div>
-						<p>or Upload from Computer:
-							<input type="file" onChange={this.onImgChange} />
-						</p>
-						<Button size="lg" onClick={this.onImgUpload}>
-							<AiOutlineScan />
-						</Button>
-					</div>
+                        <input type="file" onChange={this.onImgChange} />
+                        <label htmlFor='choose-file'>
+                            <Button><FaUpload /></Button>
+                        </label>&nbsp;
+                        <Button onClick={this.onImgUpload}><AiOutlineScan /></Button>
+                    </div>
 					<Card>
 						<p>Disease</p>
 						<p>Accuracy: 95%</p>

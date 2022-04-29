@@ -12,7 +12,7 @@ from PIL import Image
 
 disease_api = Blueprint('disease_api', __name__)
 
-data_dir = "crop_health_detection/new-plant-diseases-dataset/New Plant Diseases Dataset(Augmented)/New Plant Diseases Dataset(Augmented)"
+data_dir = "crop_health_detection/new-plant-diseases-dataset/New Plant Diseases Dataset(Augmented)"
 train_dir = data_dir + "/train"
 
 train = ImageFolder(train_dir, transform=transforms.ToTensor())
