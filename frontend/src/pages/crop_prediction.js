@@ -72,7 +72,7 @@ class Prediction extends React.Component {
                     <hr />
                     <div>
                         <Button onClick={this.onFetchData}><FaDownload /></Button>&nbsp;
-                        <input type="file" onChange={this.onFileChange} />
+                        <input style={{display: 'none'}} type="file" onChange={this.onFileChange} />
                         <label htmlFor='choose-file'>
                             <Button><FaUpload /></Button>
                         </label>&nbsp;

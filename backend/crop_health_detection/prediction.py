@@ -132,10 +132,12 @@ def predict_image(img, model):
 
 @disease_api.route('/disease',  methods=['POST'])
 def disease():
-    # rint(request.files)
-    file = request.files['image']
-    image = Image.open(file.stream)
-    transform = transforms.Compose([transforms.ToTensor()])
-    img = transform(image)
-    # img, label = test[0]
+    # files = request.files
+    # print("hhhhhh",files)
+    # file = files.get('image')
+    # print(file)
+    # image = Image.open(file.stream)
+    # transform = transforms.Compose([transforms.ToTensor()])
+    # img = transform(image)
+    img, label = test[0]
     return predict_image(img, model)

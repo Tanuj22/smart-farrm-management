@@ -17,7 +17,8 @@ class Disease extends React.Component {
 
 	handleImgCapture(img) {
 		this.setState({
-			imgSrc: img
+			imgSrc: img,
+			diseaseInfo: ''
 		});
 		console.log(img);
 	}
@@ -43,6 +44,9 @@ class Disease extends React.Component {
 			})
             .then((res)=>{
                 console.log(res.data);
+				this.setState({
+					diseaseInfo: res.data
+				})
             });
 	};
 
@@ -61,9 +65,7 @@ class Disease extends React.Component {
                         <Button onClick={this.onImgUpload}><AiOutlineScan /></Button>
                     </div>
 					<Card>
-						<p>Disease</p>
-						<p>Accuracy: 95%</p>
-						<p>The state of local or systemic abnormal physiological functioning of a plant, resulting from the continuous, prolonged 'irritation' caused by phytopathogenic organisms.</p>
+						<p>{this.state.diseaseInfo}</p>
 					</Card>
 				</Container>
 			</div>
