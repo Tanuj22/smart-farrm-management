@@ -19,6 +19,8 @@ To assist farmers with their farm management irrespective of their farm size, lo
     ```
     cd backend
     ```
+- Add the `new plant diseases dataset(augmented)` and `New Plant Diseases Dataset(Augmented)` folders from [dataset](https://drive.google.com/file/d/1S8TWyIRX5nP85oAzNx_U9SbXMInTtV2l/view?usp=sharing) to `new-plant-diseases-dataset` folder in `crop_health_detection` folder
+
 - Create and activate virtual environment 
     ```
     sudo apt-get install -y python3-venv
