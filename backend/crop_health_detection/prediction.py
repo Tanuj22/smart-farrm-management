@@ -6,6 +6,9 @@ import torchvision.transforms as transforms   # for transforming images into ten
 from torchvision.datasets import ImageFolder  # for working with classes and images
 import matplotlib.pyplot as plt # for plotting informations on graph and images using tensors
 from flask import Blueprint
+from flask import request
+from PIL import Image
+
 
 disease_api = Blueprint('disease_api', __name__)
 
@@ -127,7 +130,12 @@ def predict_image(img, model):
 #     print('Label:', test_images[i], ', Predicted:', predict_image(img, model))
 
 
-@disease_api.route('/disease')
+@disease_api.route('/disease',  methods=['POST'])
 def disease():
-    img, label = test[0]
+    # rint(request.files)
+    file = request.files['image']
+    image = Image.open(file.stream)
+    transform = transforms.Compose([transforms.ToTensor()])
+    img = transform(image)
+    # img, label = test[0]
     return predict_image(img, model)
