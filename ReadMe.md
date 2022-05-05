@@ -1,5 +1,7 @@
 # Mobile and Pervasive Computing - CSL 7460
 
+## Instructor: Dr. Suchetana Chakraborty (Assistant Professor, Department of Computer Science & Engineering @ Indian Institute of Technology, Jodhpur)
+
 ## Group Members 
 
 - Jash Patel (B18CSE040)
