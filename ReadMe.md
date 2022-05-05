@@ -1,3 +1,10 @@
+# Mobile and Pervasive Computing - CSL 7460
+
+## Group Members 
+
+- Jash Patel (B18CSE040)
+- Tanuj Agarwal (B18CSE056)
+
 # Smart Farm Management 
 
 To assist farmers with their farm management irrespective of their farm size, location and geographical factors. A one-stop solution at your fingertips covering the following domains:
