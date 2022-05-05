@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Button, Row, Col, Card, Tooltip } from 'react-bootstrap';
+import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 import GaugeChart from 'react-gauge-chart';
 import Thermometer from 'react-thermometer-component';
 import { FaDownload, FaUpload } from 'react-icons/fa';
