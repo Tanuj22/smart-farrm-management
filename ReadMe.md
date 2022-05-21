@@ -19,7 +19,7 @@ To assist farmers with their farm management irrespective of their farm size, lo
 - Clone this repository and launch code:
     ```
     git clone https://github.com/Tanuj22/smart-farrm-management.git
-    cd cdc-portal
+    cd smart-farrm-management
     code .
     ```
 
@@ -33,8 +33,8 @@ To assist farmers with their farm management irrespective of their farm size, lo
 - Create and activate virtual environment 
     ```
     sudo apt-get install -y python3-venv
-    python3 -m venv spc_portal_venv
-    source spc_portal_venv/bin/activate
+    python3 -m venv smart-farrm-management_venv
+    source smart-farrm-management_venv/bin/activate
     ```
 - Use pip to install other dependencies from `requirements.txt`
     ```
